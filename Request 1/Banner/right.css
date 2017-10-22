@@ -1,0 +1,21 @@
+
+.container{
+	width: 900px;
+	overflow: hidden;
+}
+.banner{
+	width: 2500px;
+	height: 300px;
+}
+.first{
+	-webkit-animation:run 30s linear infinite;
+}
+
+@-webkit-keyframes run{
+	0%{
+		margin-left: -1215px;
+	}
+	100%{
+		margin-left: 0px;
+	}
+}

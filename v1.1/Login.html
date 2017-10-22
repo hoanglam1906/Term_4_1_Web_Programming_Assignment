@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta author="Hoàng Tùng Lâm" content="Bài tập lớn">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta http-equiv="refresh" content="3" > -->
+    <link rel="icon" href="Images/logo.png">
+	<title>TopJob2 - Login</title>
+	<style >
+		/**/
+		input
+		{
+
+			user-select: text;
+			background-color: white;
+			cursor: auto;
+		}
+		body
+		{
+			margin: 0px 0px 0px 0px;
+			background-color: white;
+		}
+		
+		.header
+		{
+			/*position: fixed;*/
+			width: 100%;
+			height: 100px;
+			/*background-color: lightgrey;*/
+			/*position: fixed;*/
+		}
+		.header-contents
+		{
+			max-width: 100%;
+			position: center;
+			border: 1px solid black;
+		}
+		.logo
+		{
+			float: left;
+			margin-top: 15px;
+		}
+		.nav
+		{
+			float: right;
+			margin-right: 10px;
+			margin-top: 39px;
+			list-style: none;
+			
+		}
+		
+		.nav__items
+		{
+
+			cursor: pointer; /*Dùng để biến đổi trỏ chuột khi di vào*/
+			text-decoration: none; /*tắt gạch chân của link text*/
+			color: black;
+			font-size: 25px;
+			text-transform: uppercase;
+		}
+		.nav__itemsred
+		{
+			cursor: pointer; /*Dùng để biến đổi trỏ chuột khi di vào*/
+			text-decoration: none; /*tắt gạch chân của link text*/
+			color: red;
+			font-size: 25px;
+			text-transform: uppercase;
+		}
+		.nav__items:hover
+		{
+			color:red;
+		}
+		.nav__itembox:hover
+		{
+			transform: scale(1.5,1.5); 
+		}
+		.nav__itembox
+		{
+			display: inline-block;
+			text-align: center;
+			border: 1px solid black;
+			padding-left: 10px;
+			padding-right: 10px;
+
+		}
+	</style>
+</head>
+<body>
+	<section class="header">
+		<div class header-contents>
+			<a class="logo" href="Home.html">
+				<img src="Images/logo_small.png">
+			</a>
+		
+			<nav class="nav">
+				<!-- <li class="nav__itembox"> <a class="nav__items" href="#about">Giới thiệu</a> </li> -->
+				<li class="nav__itembox"> <a class="nav__items" href="Student.html">Học sinh</a> </li>
+				<!-- <li class="nav__itembox"> <a class="nav__items" href="University.html">Trường đại học</a> </li> -->
+				<li class="nav__itembox"> <a class="nav__items" href="Employer.html">Nhà tuyển dụng</a> </li>
+				<li class="nav__itembox"> <a class="nav__itemsred" href="Login.html">Đăng nhập</a> </li>
+				<li class="nav__itembox"> <a class="nav__items" href="Signup.html">Đăng kí</a> </li>
+			</nav>
+		</div>
+	</section>
+	<section class="container">
+		<form class="login-form" action="Login.html" method="post">
+			Username:<br>
+  			<input type="text" name="Username" placeholder="Type your email or username here"><br>
+  			Password:<br>
+  			<input type="text" name="Password" placeholder="Type your password here">
+  			<br><br>
+  			<input type="submit" value="Submit">
+		</form>
+	</section>
+</body>
+</html>

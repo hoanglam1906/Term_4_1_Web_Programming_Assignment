@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta author="Hoàng Tùng Lâm" content="Bài tập lớn">
+    <!-- <meta http-equiv="refresh" content="3" > -->
+    <link rel="icon" href="Images/logo.png">
+	<title>TopJob</title>
+	<style >
+		body
+		{
+			margin: 0px 0px 0px 0px;
+			background-color: white;
+			font-family: serif;
+		}
+		img
+		{
+			
+			max-width: 100%;
+			height: auto;
+			padding: 10px 10px 10px 10px;
+			
+		}
+		.header
+		{
+			/*position: fixed;*/
+			width: 100%;
+			height: 100px;
+			/*background-color: lightgrey;*/
+		}
+		.header-contents
+		{
+			max-width: 100%;
+			position: center;
+			border: 1px solid black;
+		}
+		.logo
+		{
+			float: left;
+			margin-top: 15px;
+		}
+		.nav
+		{
+			float: right;
+			margin-right: 10px;
+			margin-top: 39px;
+			list-style: none;
+			
+		}
+		.nav>li>a 
+		{
+    		position: relative;
+    		display: block;
+    		padding: 0px 0px !important;
+    		/*Cái này là do bootstrap thêm vào*/
+		}
+		.nav__items
+		{
+			cursor: pointer; /*Dùng để biến đổi trỏ chuột khi di vào*/
+			text-decoration: none; /*tắt gạch chân của link text*/
+			color: black;
+			font-size: 25px;
+			text-transform: uppercase;
+		}
+		.nav__items:hover
+		{
+			color:red;
+			background-color: transparent !important; /*Thêm vào để né bootstrap*/
+			padding: 0px 0px 0px 0px !important;
+		}
+		.nav__itembox:hover
+		{
+			transform: scale(1.2,1.2); 
+		}
+		.nav__itembox
+		{
+			display: inline-block !important; /*Thêm vào để né bootstrap*/
+			text-align: center;
+			border: 1px solid black;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		.banner
+		{	
+			height: auto;
+			margin-top: 0px;
+			background-image: url(Images/banner2.jpg);
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 100%;			
+		}
+		.container
+		{
+			width: 100%;
+			height: 500px;
+			margin-top: 0px;			
+		}
+   		.text-container 
+		{			
+    		background: white;
+    		/*opacity: 0.5;*/
+    		position: absolute;
+    		text-align: center;
+    		margin-top: 250px;
+    		left: 50%;
+    		font-size: 30px;
+    		transform: translate(-50%, -50%);
+    	}
+    	.banner-text
+    		{
+    			text-align: center;
+    			width: 900px;
+    			height: auto;
+    			font-size: 50px;
+    		}
+    	@media only screen and (max-width: 605px) 
+    	{
+    		.text-container
+    		{
+    			font-size: 25px;
+
+    		}
+    		.banner-text
+    		{
+    			width: 300px;
+    			height: 200px;
+    		}
+		}
+		.com-list
+		{
+			max-width: 100%;
+			/*height: 500px;*/
+			margin-top: 20px;
+		}
+		.company-container
+		{			
+			width: 1347px;
+    		height: 520px;
+   			border: 1px solid black;
+   	 		display: block;
+   			margin-top: 20px;
+   	 		margin-left: auto;
+   	 		margin-right: auto;
+		}
+		.company-image
+		{
+			float: left;			
+		}
+		.com-text
+		{
+			width: 510px;
+			height: 500px;
+			margin-left: 0px; 
+			margin-top: 10px;
+			color: black;
+			font-size: 30px;
+			border: 1px solid black;
+			text-align: center;
+			display: inline-block;
+		}
+		.com-intro
+		{
+			margin: 150px 30px 100px 30px ;
+			padding: 10px 10px 10px 10px;
+			color: red;
+			border: 2px solid black;
+		}
+		.com-sign
+		{
+			text-decoration: none;
+			border: 2px solid black;
+			background-color: red;
+			color: white;
+		}
+		.topjob-people
+		{
+			width: 1349px;
+			margin-left: auto;
+   	 		margin-right: auto;
+		}
+		.sen1 
+		{
+			text-align: center;
+			margin-top: 150px;
+			font-size: 50px;
+		}		
+		.student-list
+		{			
+			margin: auto;
+			max-width: 100%;
+			height: auto;
+			margin-top: 100px;
+			/*border: 4px solid red;
+			background-color: lightgrey;*/
+		}
+		.student-container
+		{
+			/*border: 4px solid black;*/
+			max-width: 100%;
+			height: auto;			
+    		margin: 0 auto 10px 30px;   		
+		}
+		.student
+		{				
+			display: inline-block;
+			
+			padding: 0px 0px 0px 0px;
+		}
+		/*.student:hover
+		{	
+			transform: scale(0.5,0.5);			
+		}*/
+		.employer-list
+		{			
+			margin: auto;
+			max-width: 100%;
+			height: auto;
+			margin-top: auto;
+			/*border: 4px solid red;
+			background-color: lightgrey;*/
+		}
+		.employer-container
+		{			
+			/*border: 4px solid black;*/
+			max-width: 100%;
+			height: auto;
+			/*display: -webkit-flex;
+    		display: flex;*/
+    		margin: 30px auto 10px 30px;
+    		/*-webkit-justify-content: center;
+    		justify-content: flex-start;
+    		justify-content: center;*/   		
+		}
+		.employer
+		{	
+			display: inline-block;			
+			padding: 0px 0px 0px 0px;
+		}
+		.footer-top
+		{
+			width: 100%;
+			height: 400px;
+			/*border: 4px solid black;*/
+			margin-top: 20px;
+		}
+		.footer-bottom
+		{
+			width: 100%;
+			height: 300px;
+			/*border: 4px solid black;*/
+			margin-top: 10px;
+		}
+		.footer-quote
+		{
+			text-align: center;
+			margin-top: 200px;
+			font-size: 50px;
+		}
+		.logo-container
+		{
+			width: 1349px;
+			margin-left: auto;
+   	 		margin-right: auto;
+		}
+		.logo-footer
+		{
+			display: inline-block;			
+		}
+		.footer-container
+		{
+			width: 1345px;
+			height: 524px;
+			border: 2px solid black;
+			margin-left: auto;
+   	 		margin-right: auto;
+		}
+		.footer-box
+		{
+			width: 300px;
+			height: 500px;
+			padding: 10px 0px 10px 0px;
+			display: inline-block;
+			text-align: center;
+			border: 2px solid black;
+			margin-left: 20px;
+		}
+		@media only screen and (max-width: 1349px)
+		{
+			/*.com-list
+			{
+				display: none;
+			}
+			.employer-container 
+			{
+   
+   			max-width: 100%;
+    		height: auto;
+    		margin: 30px auto 10px 0px;
+			}
+			.student-container 
+			{
+   
+   			max-width: 100%;
+    		height: auto;
+    		margin: 30px auto 10px 0px;
+			}*/
+		}
+		@media only screen and (max-width: 1370px)
+		{
+			/*.com-list
+			{
+				width: 100%;
+				margin-top: 20px;
+				margin-left: auto;
+			}*/
+			.company-container
+			{
+			
+				max-width: 100%;
+    			height: 520px;
+   				border: 1px solid black;
+   	 			display: block;
+   				margin-top: 20px;  	 		
+			}
+			.topjob-people
+			{
+				max-width: 100%;
+				margin-left: auto;
+   	 			margin-right: auto;
+			}
+			.logo-container
+			{
+				max-width: 100%;
+				margin-left: auto;
+   	 			margin-right: auto;
+			}
+			.footer-container
+			{
+				max-width: 100%;
+				height: 524px;
+				border: 2px solid black;
+				margin-left: auto;
+   	 			margin-right: auto;
+			}
+		}	
+	</style>
+</head>
+<body>
+
+	<section class="header">
+		<div class header-contents>
+			<a class="logo" href="Home.html">
+				<img src="Images/logo_small.png">
+			</a>
+		
+			<nav class="nav">
+				<!-- <li class="nav__itembox"> <a class="nav__items" href="#about">Giới thiệu</a> </li> -->
+				<li class="nav__itembox"> <a class="nav__items" href="Student.html">Học sinh</a> </li>
+				<li class="nav__itembox"> <a class="nav__items" href="University.html">Trường đại học</a> </li>
+				<li class="nav__itembox"> <a class="nav__items" href="Employer.html">Nhà tuyển dụng</a> </li>
+				<li class="nav__itembox"> <a class="nav__items" href="Login.html">Đăng nhập</a> </li>
+				<li class="nav__itembox"> <a class="nav__items" href="Signup.html">Đăng kí</a> </li>
+			</nav>
+		</div>
+	</section>
+	<section class="banner" >		
+		<div class="container">
+			<div class="text-container">
+				<h2 class="banner-text">Trang giới thiệu việc làm lớn nhất Việt Nam dành cho sinh viên các trường đại học</h2>
+			</div>
+		</div>
+	</section>
+	<section class="com-list">				
+		<div class="company-container">
+			<div class="company-image">
+				<img class="comp1" src="Images/Company/comp1.jpg">	
+			</div>
+			<div class="com-text">
+				<p class="com-intro">Cơ hội được thực tập tại những công ty hàng đầu thế giới trong lĩnh vực sáng tạo nghệ thuật</p>
+				<div>
+					<a class="com-sign" href="Student.html" title="Go to Student page">Đăng kí ngay</a>
+				</div>
+			</div>
+		</div>
+		<div class="company-container">
+			<div class="company-image">
+				<img class="comp2" src="Images/Company/comp2.jpg">	
+			</div>
+			<div class="com-text">
+				<p class="com-intro">Cơ hội đến với những công ty đứng đầu ngành truyền thông và quảng cáo đa phương tiện trực tuyến</p>
+				<div>
+					<a class="com-sign" href="Student.html" title="Go to Student page">Đăng kí ngay</a>
+				</div>
+			</div>
+		</div>
+		<div class="company-container">
+			<div class="company-image">
+				<img class="comp3" src="Images/Company/comp3.jpg">	
+			</div>
+			<div class="com-text">
+				<p class="com-intro">Cơ hội thử sức tại những công ty đứng đầu thế giới về công nghệ</p>
+				<div>
+					<a class="com-sign" href="Student.html" title="Go to Student page">Đăng kí ngay</a>
+				</div>
+			</div>			
+		</div>
+	</section>	
+	<section class="topjob-people">
+		<p class="sen1" >Những con người của TopJob nói gì?</p>
+		<div class="student-list">
+			<div class="student-container">
+				<div class="student">
+					<img src="Images/Students/stu1.jpg">
+				</div>
+				<div class="student">
+					<img src="Images/Students/stu3.jpeg">
+				</div>
+				<div class="student">
+					<img src="Images/Students/stu2.jpg">
+				</div>
+				<div class="student">
+					<img src="Images/Students/stu4.jpg">
+				</div>
+			</div>
+		</div>
+		<div class="employer-list">
+			<div class="employer-container">
+				<div class="employer">
+					<img src="Images/Employers/hugh.jpg">
+				</div>
+				<div class="employer">
+					<img src="Images/Employers/tony.jpg">
+				</div>
+				<div class="employer">
+					<img src="Images/Employers/steven.jpg">
+				</div>
+				<div class="employer">
+					<img src="Images/Employers/gaben.jpg">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer">
+		<div class="footer-top">
+			<p  class="footer-quote">Một số nhà tuyển dụng tham gia chương trình đào tạo sinh viên</p>
+			<div class="logo-container">
+				<div class="logo-footer">
+					<img src="Images/Foot/cry.jpg">
+				</div>
+				<div class="logo-footer">
+					<img src="Images/Foot/gg.jpg">
+				</div>
+				<div class="logo-footer">
+					<img src="Images/Foot/in.png">
+				</div>
+				<div class="logo-footer">
+					<img src="Images/Foot/yt.png">
+				</div>
+			</div>
+		</div>		
+		<div class="footer-bottom">			
+			<div class="footer-container">
+				<div class="footer-box">
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+				</div>
+				<div class="footer-box">
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+				</div>
+				<div class="footer-box">
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+				</div>
+				<div class="footer-box">
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+					<p>text</p>
+				</div>
+			</div>
+			<p style="text-align: center; font-size: 40px; margin-top: 200px;">Trang web này chịu trách nhiệm bản quyền và nội dung của HTL</p>
+			<p style="text-align: center; font-size: 40px; margin-bottom: 200px;">TopJob &reg; 2017</p>
+		</div>
+	</section>
+</body>
+</html>
